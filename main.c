@@ -103,9 +103,18 @@ void CriarRegistro() {
     printf("==================================\n");
 }
 
-//Editar registros, pedir: ID, Tipo, Valor, Data, Hora.
-//Remover registros, pedir: ID
+//Alterar registros, pedir: ID, Tipo, Valor, Data, Hora.
 //Buscar registros, pedir: ID ou Tipo.
+//Remover registros, pedir: ID
+
+void AlterarRegistro(int ID){
+};
+
+void BuscarRegistro(){
+};
+
+void RemoverRegistro(int ID){
+};
 
 
 //Função principal
