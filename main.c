@@ -80,7 +80,7 @@ void CriarRegistro() {
     }
 
     printf("Tipo de dado que deseja armazenar:\n"); 
-    printf("1-Glicose, 2-Carboidrato, 3-Insulina\n");
+    printf("1 - Glicose, 2 - Carboidrato, 3 - Insulina\n");
     scanf("%d", &Opcao);
 
     if (Opcao == 1) {
@@ -109,9 +109,23 @@ void CriarRegistro() {
 //Remover registros, pedir: ID
 
 void AlterarRegistro(){
-    int ID;
+    int ID_Alterar;
     printf("ID: ");
-    scanf("%d",&ID);
+    scanf("%d",&ID_Alterar);
+
+    FILE *arq = fopen("registros.bin", "rb+"); //rb é só ler binario; rb+ permite alteracao
+    if (!arq){
+        printf("O arquivo de registros está com algum problema. Tente novamente mais tarde.");
+    }
+
+    struct Registro r;
+
+    while (fread(&r, sizeof(struct Registro), 1, arq) { // 1 pq só lemos 1 arq
+        if (r.ID == ID_Alterar) {
+        }
+    
+    }    
+    
 };
 
 void BuscarRegistro(){
@@ -123,7 +137,7 @@ void RemoverRegistro(int ID){
 
 //Função principal
 int main() {
-    int EscolhaUsuario;
+    int EscolhaUsuario = 0;
 
     while (EscolhaUsuario != 5) {
         printf("\n--------- MENU ---------\n");
