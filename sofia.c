@@ -140,6 +140,12 @@ int main() {
         else if (EscolhaUsuario == 3) {
             //BuscarRegistro(arquivo);
         }
+        else if (EscolhaUsuario == 4) {
+            //RemoverRegistro(arquivo);
+        }
+        else if (EscolhaUsuario == 5) {
+            //Sair
+        }
     }
 
 }
