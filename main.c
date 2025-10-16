@@ -121,7 +121,7 @@ void RemoverRegistro(int ID){
 int main() {
     int EscolhaUsuario;
 
-    while (EscolhaUsuario != 4) {
+    while (EscolhaUsuario != 5) {
         printf("\n--------- MENU ---------\n");
         printf("1- Adicionar registro\n");
         printf("2- Alterar registro\n");
@@ -143,10 +143,9 @@ int main() {
         else if (EscolhaUsuario == 4) {
             //RemoverRegistro(arquivo);
         }
-        else if (EscolhaUsuario == 5) {
-            //Sair;
+        else {
+            printf("Número inválido. Tente novamente.);
         }
-        
     }
 
 }
