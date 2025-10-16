@@ -115,9 +115,10 @@ int main() {
     while (EscolhaUsuario != 4) {
         printf("\n--------- MENU ---------\n");
         printf("1- Adicionar registro\n");
-        printf("2- Editar registro\n");
+        printf("2- Alterar registro\n");
         printf("3- Buscar registro\n");
-        printf("4- Sair\n");
+        printf("4- Remover registro\n");
+        printf("5- Sair\n");
         printf("--------- MENU ---------\n\n");
         printf("Escolha: "); scanf("%d", &EscolhaUsuario);
 
@@ -125,11 +126,18 @@ int main() {
             CriarRegistro();
         }
         else if (EscolhaUsuario == 2) {
-            //EditarRegistro(arquivo);
+            //AlterarRegistro(arquivo);
         }
         else if (EscolhaUsuario == 3) {
             //BuscarRegistro(arquivo);
         }
+        else if (EscolhaUsuario == 4) {
+            //RemoverRegistro(arquivo);
+        }
+        else if (EscolhaUsuario == 5) {
+            //Sair;
+        }
+        
     }
 
 }
