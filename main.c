@@ -42,7 +42,9 @@ int GerarID() {
     struct Registro r;
     int UltimoID = 0;
     while (fread(&r, sizeof(struct Registro), 1, arq)) {
-        if (r.ID > UltimoID) UltimoID = r.ID;
+        if (r.ID > UltimoID) { 
+            UltimoID = r.ID;
+        }
     }
 
     fclose(arq);
@@ -55,7 +57,6 @@ void CriarRegistro() {
     arq = fopen("registros.txt", "ab");
 
     int Opcao;
-
     struct Registro r;
     r.ID = GerarID();
 
@@ -107,7 +108,10 @@ void CriarRegistro() {
 //Buscar registros, pedir: ID ou Tipo.
 //Remover registros, pedir: ID
 
-void AlterarRegistro(int ID){
+void AlterarRegistro(){
+    int ID;
+    printf("ID: ");
+    scanf("%d",&ID);
 };
 
 void BuscarRegistro(){
@@ -135,13 +139,13 @@ int main() {
             CriarRegistro();
         }
         else if (EscolhaUsuario == 2) {
-            //AlterarRegistro(arquivo);
+            AlterarRegistro();
         }
         else if (EscolhaUsuario == 3) {
-            //BuscarRegistro(arquivo);
+            BuscarRegistro();
         }
         else if (EscolhaUsuario == 4) {
-            //RemoverRegistro(arquivo);
+            RemoverRegistro();
         }
         else {
             printf("Número inválido. Tente novamente.);
