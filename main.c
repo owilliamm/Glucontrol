@@ -104,8 +104,7 @@ void CriarRegistro() {
 }
 
 //Editar registros, pedir: ID, Tipo, Valor, Data, Hora.
-
-
+//Remover registros, pedir: ID
 //Buscar registros, pedir: ID ou Tipo.
 
 
