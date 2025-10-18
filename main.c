@@ -97,13 +97,45 @@ void CriarRegistro() {
 //Remover registros, pedir: ID.
 
 //Buscar registros, pedir: ID ou Tipo de diabetes.
+
+
+
+void AlterarRegistro(){
+    int ID_Alterar;
+    struct Registro r;
+    int achei = 0; //se achar o registro, muda pra 1
+
+    FILE *arq = fopen("registros.bin","rb+"); //rb+ pq ele vai ler e escrever por causa das alteracoes
+
+    if (!arq) { //arquivo nao existe ou tem erro
+        printf("Tivemos um problema com o arquivo. Tente novamente mais tarde. \n");
+        return; //finaliza a funcao
+    }
+
+    printf("ID para alterar: ");
+    scanf("%d", &ID_Alterar);
+
+    while(fread(&r,sizeof(struct Registro), q, arq) == 1) {
+        if (r.ID == ID_Alterar) {
+            achei = 1;
+        }
+
+        //Mostrar dados para o user
+        printf("
+    
+}
+
+void RemoverRegistro(){
+
+}
+
 void BuscarRegistro() {
     FILE* arq = fopen("registros.bin", "rb");
     struct Registro r;
 
     int Opcao = 0;
     while (Opcao != 1 && Opcao != 2) {
-        printf("Buscar por 1-ID ou 2-Tipo?\n");
+        printf("Buscar por 1 - ID ou 2 - Tipo?\n");
         scanf("%d", &Opcao);
     }
 
@@ -187,13 +219,16 @@ int main() {
             CriarRegistro();
         }
         else if (EscolhaUsuario == 2) {
-            //AlterarRegistro();
+            AlterarRegistro();
         }
         else if (EscolhaUsuario == 3) {
-            //RemoverRegistro();
+            RemoverRegistro();
         }
         else if (EscolhaUsuario == 4) {
             BuscarRegistro();
+        }
+        else {
+            printf("Numero invalido. Tente novamente.\n");
         }
     }
 }
