@@ -99,9 +99,8 @@ void CriarRegistro() {
 //Buscar registros, pedir: ID ou Tipo de diabetes.
 
 
-
 void AlterarRegistro(){
-    int ID_Alterar;
+    int ID_Alt;
     struct Registro r;
     int achei = 0; //se achar o registro, muda pra 1
 
@@ -113,16 +112,43 @@ void AlterarRegistro(){
     }
 
     printf("ID para alterar: ");
-    scanf("%d", &ID_Alterar);
+    scanf("%d", &ID_Alt);
 
-    while(fread(&r,sizeof(struct Registro), q, arq) == 1) {
-        if (r.ID == ID_Alterar) {
+    while(fread(&r,sizeof(struct Registro), 1, arq) == 1) {
+        if (r.ID == ID_Alt) {
             achei = 1;
         }
 
         //Mostrar dados para o user
-        printf("
-    
+        printf("---- REGISTRO ENCONTRADO ----");
+        printf("ID: %d\n", r.ID);
+        if (r.Tipo == DM1) {
+            printf("Tipo de Diabetes: 1\n");
+            printf("Dose de insulina: %d unidades\n", r.Info.Insulina);
+        } else {
+            printf("Tipo de Diabetes: 2\n");
+            printf("Minutos de atividade aerobica: %d mins\n", r.Info.AtividadeFisica.Aerobica);
+            printf("Minutos de atividade de resistencia: %d mins\n", r.Info.AtividadeFisica.Resistencia);
+            
+        }   
+        printf("Data: %02d/%02d/%04d - %02d:%02d\n", r.DataHora[0][0], r.DataHora[0][1], r.DataHora[0][2], r.DataHora[1][0], r.DataHora[1][1]);
+        printf("Glicose %d mg/dL\n", r.Glicose);
+        printf("Carboidrato consumido: %d g\n", r.Carboidrato);
+        printf("===============\n\n");
+
+        fseek(arq, -sizeof(struct Registro), SEEK_CUR);
+
+        printf("----- ALTERACAO DOS DADOS -----");
+        int DataHoraAlt[2][3] = {{0, 0, 0}, {0, 0}};
+        while (!DataHoraValida(DataHoraAlt)) {
+            printf("Digite a nova data e hora (DD/MM/YYYY) HH:MM: ");
+            scanf("%d/%d/%d %d:%d", &DataHoraAlt[0][0], &DataHoraAlt[0][1], &DataHoraAlt[0][2], &DataHoraAlt[1][0], &DataHoraAlt[1][1]);
+            if (!DataHoraValida(DataHoraAlt)) {
+                printf("Data e/ou hora invalida. Tente novamente mais tarde.\n");
+            }
+
+        }
+    }  
 }
 
 void RemoverRegistro(){
