@@ -51,7 +51,7 @@ void CriarRegistro() {
     // Usuario seleciona o tipo da diabetes
     int tipo = 0;
     while (tipo != 1 && tipo != 2) {
-        printf("Digite o tipo de diabetes (1- Tipo 1, 2- Tipo 2): ");
+        printf("Digite o tipo de diabetes (1 - Tipo 1, 2 - Tipo 2): ");
         scanf("%d", &tipo);
         if (tipo != 1 && tipo != 2) printf("Opcao invalida. Tente novamente.\n");
     }
@@ -61,7 +61,7 @@ void CriarRegistro() {
     r.DataHora[0][0] = r.DataHora[0][1] = r.DataHora[0][2] = 0; r.DataHora[1][0] = r.DataHora[1][1] = 0;
 
     while (!DataHoraValida(r.DataHora)) {
-        printf("Digite a data e a hora DD/MM/YYYY HH:MM: ");
+        printf("Digite a data e a hora (DD/MM/YYYY HH:MM): ");
         scanf("%d/%d/%d %d:%d", &r.DataHora[0][0], &r.DataHora[0][1], &r.DataHora[0][2],
               &r.DataHora[1][0], &r.DataHora[1][1]);
         if (!DataHoraValida(r.DataHora))
@@ -147,8 +147,51 @@ void AlterarRegistro(){
                 printf("Data e/ou hora invalida. Tente novamente mais tarde.\n");
             }
 
+        // passar a datahora inserida pro registro
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 3; j++) {
+                r.DataHora[i][j] = DataHoraAlt[i][j];
+            }
+        }
+
+        printf("Novo valor da glicose (mg/dL): ");
+        scanf("%d", r.Glicose);
+        printf("Novo carboidrato consumido (g): ");
+        scanf("%d", r.Carboidrato);
+
+        if (r.Tipo == DM1) {
+            printf("Tipo de Diabetes: 1\n");
+
+            printf("Nova dose de insulina (unidades): \n");
+            scanf("%d", &r.Info.Insulina);
+
+        } else {
+            printf("Tipo de Diabetes: 2\n");
+
+            printf("Minutos de atividade aerobica: \n");
+            scanf("%d", &r.Info.AtividadeFisica.Aerobica);
+
+            printf("Minutos de atividade de resistencia: \n");
+            scanf("%d", &r.Info.AtividadeFisica.Resistencia);
+            
+        }
+
+        fwrite(&r, sizeof(struct Registro), 1, arq);
+
+        printf("\n==================================\n");
+        printf("Registro #%d alterado com sucesso!\n", r.ID);
+        printf("====================================\n");
+
+        break;
+
         }
     }  
+
+    if (!achei) { //se nao for achado
+        printf("Registro #%d nao foi encontrado. Tente novamente mais tarde.\n", ID_Alt);
+    }
+
+    fclose(arq);
 }
 
 void RemoverRegistro(){
@@ -195,7 +238,7 @@ void BuscarRegistro() {
     else if (Opcao == 2) {
         int TipoSelecionado = 0;
         while (TipoSelecionado != 1 && TipoSelecionado != 2) {
-            printf("Digite o tipo de diabetes para buscar (1- DM1, 2- DM2): ");
+            printf("Digite o tipo de diabetes para buscar (1 - DM1, 2 - DM2): ");
             scanf("%d", &TipoSelecionado);
         }
 
