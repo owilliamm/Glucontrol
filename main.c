@@ -117,35 +117,38 @@ void AlterarRegistro(){
     while(fread(&r,sizeof(struct Registro), 1, arq) == 1) {
         if (r.ID == ID_Alt) {
             achei = 1;
-        }
+        
 
         //Mostrar dados para o user
-        printf("---- REGISTRO ENCONTRADO ----");
+        printf("\n---- REGISTRO ENCONTRADO ----\n");
         printf("ID: %d\n", r.ID);
         if (r.Tipo == DM1) {
             printf("Tipo de Diabetes: 1\n");
             printf("Dose de insulina: %d unidades\n", r.Info.Insulina);
         } else {
             printf("Tipo de Diabetes: 2\n");
-            printf("Minutos de atividade aerobica: %d mins\n", r.Info.AtividadeFisica.Aerobica);
-            printf("Minutos de atividade de resistencia: %d mins\n", r.Info.AtividadeFisica.Resistencia);
+            printf("Minutos de atividade aerobica: %d min\n", r.Info.AtividadeFisica.Aerobica);
+            printf("Minutos de atividade de resistencia: %d min\n", r.Info.AtividadeFisica.Resistencia);
             
         }   
+
         printf("Data: %02d/%02d/%04d - %02d:%02d\n", r.DataHora[0][0], r.DataHora[0][1], r.DataHora[0][2], r.DataHora[1][0], r.DataHora[1][1]);
-        printf("Glicose %d mg/dL\n", r.Glicose);
+        printf("Glicose: %d mg/dL\n", r.Glicose);
         printf("Carboidrato consumido: %d g\n", r.Carboidrato);
         printf("===============\n\n");
 
         fseek(arq, -sizeof(struct Registro), SEEK_CUR);
 
-        printf("----- ALTERACAO DOS DADOS -----");
+        printf("----- ALTERACAO DOS DADOS -----\n");
         int DataHoraAlt[2][3] = {{0, 0, 0}, {0, 0}};
         while (!DataHoraValida(DataHoraAlt)) {
-            printf("Digite a nova data e hora (DD/MM/YYYY) HH:MM: ");
+            
+            printf("Digite a nova data e hora (DD/MM/YYYY HH:MM): ");
             scanf("%d/%d/%d %d:%d", &DataHoraAlt[0][0], &DataHoraAlt[0][1], &DataHoraAlt[0][2], &DataHoraAlt[1][0], &DataHoraAlt[1][1]);
             if (!DataHoraValida(DataHoraAlt)) {
                 printf("Data e/ou hora invalida. Tente novamente mais tarde.\n");
             }
+        }
 
         // passar a datahora inserida pro registro
         for (int i = 0; i < 2; i++) {
@@ -155,23 +158,23 @@ void AlterarRegistro(){
         }
 
         printf("Novo valor da glicose (mg/dL): ");
-        scanf("%d", r.Glicose);
+        scanf("%d", &r.Glicose);
         printf("Novo carboidrato consumido (g): ");
-        scanf("%d", r.Carboidrato);
+        scanf("%d", &r.Carboidrato);
 
         if (r.Tipo == DM1) {
             printf("Tipo de Diabetes: 1\n");
 
-            printf("Nova dose de insulina (unidades): \n");
+            printf("Nova dose de insulina (unidades): ");
             scanf("%d", &r.Info.Insulina);
 
         } else {
             printf("Tipo de Diabetes: 2\n");
 
-            printf("Minutos de atividade aerobica: \n");
+            printf("Minutos de atividade aerobica: ");
             scanf("%d", &r.Info.AtividadeFisica.Aerobica);
 
-            printf("Minutos de atividade de resistencia: \n");
+            printf("Minutos de atividade de resistencia: ");
             scanf("%d", &r.Info.AtividadeFisica.Resistencia);
             
         }
@@ -194,6 +197,7 @@ void AlterarRegistro(){
     fclose(arq);
 }
 
+
 void RemoverRegistro(){
 
 }
@@ -204,7 +208,7 @@ void BuscarRegistro() {
 
     int Opcao = 0;
     while (Opcao != 1 && Opcao != 2) {
-        printf("Buscar por 1 - ID ou 2 - Tipo?\n");
+        printf("Buscar por 1 - ID ou 2 - Tipo?");
         scanf("%d", &Opcao);
     }
 
@@ -225,8 +229,8 @@ void BuscarRegistro() {
                 if (r.Tipo == DM1) {
                     printf("Dose de insulina: %d unidades\n", r.Info.Insulina);
                 } else {
-                    printf("Minutos de atividade aerobica: %d mins\n", r.Info.AtividadeFisica.Aerobica);
-                    printf("Minutos de atividade de resistencia: %d mins\n", r.Info.AtividadeFisica.Resistencia);
+                    printf("Minutos de atividade aerobica: %d min\n", r.Info.AtividadeFisica.Aerobica);
+                    printf("Minutos de atividade de resistencia: %d min\n", r.Info.AtividadeFisica.Resistencia);
                 }
                 Valido = 1;
             } else {
@@ -262,8 +266,8 @@ void BuscarRegistro() {
                 if (r.Tipo == DM1) {
                     printf("Dose de insulina: %d unidades\n", r.Info.Insulina);
                 } else {
-                    printf("Minutos de atividade aerobica: %d mins\n", r.Info.AtividadeFisica.Aerobica);
-                    printf("Minutos de atividade de resistencia: %d mins\n", r.Info.AtividadeFisica.Resistencia);
+                    printf("Minutos de atividade aerobica: %d min\n", r.Info.AtividadeFisica.Aerobica);
+                    printf("Minutos de atividade de resistencia: %d min\n", r.Info.AtividadeFisica.Resistencia);
                 }
             }
         }
@@ -295,6 +299,9 @@ int main() {
         }
         else if (EscolhaUsuario == 4) {
             BuscarRegistro();
+        }
+        else if (EscolhaUsuario == 5){
+           printf("Saiu com sucesso.");
         }
         else {
             printf("Numero invalido. Tente novamente.\n");
