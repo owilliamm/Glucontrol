@@ -200,6 +200,47 @@ void AlterarRegistro(){
 
 void RemoverRegistro(){
 
+    //Copiar os registros para um ID temporário (exceto o que é pra remover) e renomear no final
+    struct Registro r;
+
+    FILE *arq = fopen("registros.bin", "rb");
+    FILE *arq_tmp = fopen("temp.bin","wb");
+
+    if(!arq){printf("Erro em encontrar aquivo original para remover o registro");fclose(arq);}
+    if(!arq_tmp){printf("Erro em remover o registro");fclose(arq_tmp);}
+
+    int id_remover;
+    printf("Qual o registro deseja remover? ");
+    scanf("%d",&id_remover);
+
+    short int encontrado = 0;
+
+    while(fread(&r, sizeof(struct Registro), 1, arq) == 1){
+
+        if (r.ID == id_remover){encontrado = 1;}
+        else {fwrite(&r, sizeof(struct Registro), 1, arq_tmp);} //copiar os outros registros
+
+    }
+
+    fclose(arq); fclose(arq_tmp);
+
+    if (encontrado == 1){
+
+        remove("registros.bin");
+        rename("temp.bin","registros.bin");
+        printf("\n==================================\n");
+        printf("Registro #%d apagado com sucesso!\n", id_remover);
+        printf("====================================\n");
+    }
+
+    if (encontrado == 0){
+
+        remove("temp.bin");
+        printf("\n==================================\n");
+        printf("Registro #%d não encontrado\n", id_remover);
+        printf("====================================\n");
+
+    }
 }
 
 void BuscarRegistro() {
@@ -208,7 +249,7 @@ void BuscarRegistro() {
 
     int Opcao = 0;
     while (Opcao != 1 && Opcao != 2) {
-        printf("Buscar por 1 - ID ou 2 - Tipo?");
+        printf("Buscar por 1 - ID ou 2 - Tipo? ");
         scanf("%d", &Opcao);
     }
 
@@ -216,8 +257,9 @@ void BuscarRegistro() {
         int EscolhaID = 1;
         int Valido = 0;
         while (!Valido) {
-            printf("Digite um ID: ");
+            printf("\nDigite um ID (-1 para voltar ao MENU): ");
             scanf("%d", &EscolhaID);
+            if (EscolhaID == -1){break;} //caso não tenha registro pra buscar, digitar -1 volta para o menu
             fseek(arq, (EscolhaID - 1) * sizeof(struct Registro), SEEK_SET);
 
             if (fread(&r, sizeof(struct Registro), 1, arq) == 1) {
@@ -301,7 +343,7 @@ int main() {
             BuscarRegistro();
         }
         else if (EscolhaUsuario == 5){
-           printf("Saiu com sucesso.");
+           printf("Saiu com sucesso.\n");
         }
         else {
             printf("Numero invalido. Tente novamente.\n");
