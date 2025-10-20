@@ -93,12 +93,6 @@ void CriarRegistro() {
 }
 
 //Alterar registros, pedir: ID, Tipo de diabetes, Data e Hora, Glicose, Carboidrato, Insulina/Aeróbica e Resistência.
-
-//Remover registros, pedir: ID.
-
-//Buscar registros, pedir: ID ou Tipo de diabetes.
-
-
 void AlterarRegistro(){
     int ID_Alt;
     struct Registro r;
@@ -197,7 +191,7 @@ void AlterarRegistro(){
     fclose(arq);
 }
 
-
+//Remover registros, pedir: ID.
 void RemoverRegistro(){
 
     //Copiar os registros para um ID temporário (exceto o que é pra remover) e renomear no final
@@ -210,14 +204,14 @@ void RemoverRegistro(){
     if(!arq_tmp){printf("Erro em remover o registro");fclose(arq_tmp);}
 
     int id_remover;
-    printf("Qual o registro deseja remover? ");
+    printf("Qual ID do registro deseja remover? ");
     scanf("%d",&id_remover);
 
     short int encontrado = 0;
 
     while(fread(&r, sizeof(struct Registro), 1, arq) == 1){
 
-        if (r.ID == id_remover){encontrado = 1;}
+        if (r.ID == id_remover){encontrado = 1;} //variável criada para emitir mensagem de registro não encontrado
         else {fwrite(&r, sizeof(struct Registro), 1, arq_tmp);} //copiar os outros registros
 
     }
@@ -243,6 +237,7 @@ void RemoverRegistro(){
     }
 }
 
+//Buscar registros, pedir: ID ou Tipo de diabetes.
 void BuscarRegistro() {
     FILE* arq = fopen("registros.bin", "rb");
     struct Registro r;
