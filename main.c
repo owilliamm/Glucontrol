@@ -1,24 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-enum TipoDiabetes {DM1 = 1, DM2 = 2};
-
-union Info {
-    int Insulina;
-    struct {
-        int Aerobica;
-        int Resistencia;
-    } AtividadeFisica;
-};
-
-struct Registro {
-    enum TipoDiabetes Tipo;
-    union Info Info;
-    int ID;
-    int Glicose;
-    int Carboidrato;
-    int DataHora[2][3]; // Data ou hora e, dependendo da escolha, Dia/Mes/Ano ou Hora/Minuto
-};
+#include <diabetes.h>
 
 //Checar se a data e valida (Extremamente simplificado, talvez somente por enquanto.)
 int DataHoraValida(int V[2][3]) {
