@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "diabetes.h" //bibliotecas locais se incluem com aspas
+#include "uniaodisc.h" //bibliotecas locais se incluem com aspas
 
 //Checar se a data e valida (Extremamente simplificado, talvez somente por enquanto.)
 int DataHoraValida(int V[2][3]) {
