@@ -122,7 +122,7 @@ void AlterarRegistro(){
             printf("Digite a nova data e hora (DD/MM/YYYY HH:MM): ");
             scanf("%d/%d/%d %d:%d", &DataHoraAlt[0][0], &DataHoraAlt[0][1], &DataHoraAlt[0][2], &DataHoraAlt[1][0], &DataHoraAlt[1][1]);
             if (!DataHoraValida(DataHoraAlt)) {
-                printf("Data e/ou hora invalida. Tente novamente mais tarde.\n");
+                printf("Data e/ou hora invalida. Tente novamente.\n");
             }
         }
 
@@ -139,13 +139,13 @@ void AlterarRegistro(){
         scanf("%d", &r.Carboidrato);
 
         if (r.Tipo == DM1) {
-            printf("Tipo de Diabetes: 1\n");
+            // printf("Tipo de Diabetes: 1\n"); 
 
             printf("Nova dose de insulina (unidades): ");
             scanf("%d", &r.Info.Insulina);
 
         } else {
-            printf("Tipo de Diabetes: 2\n");
+            // printf("Tipo de Diabetes: 2\n");
 
             printf("Minutos de atividade aerobica: ");
             scanf("%d", &r.Info.AtividadeFisica.Aerobica);
