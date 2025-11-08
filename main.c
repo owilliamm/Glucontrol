@@ -83,7 +83,7 @@ void AlterarRegistro(){
     FILE *arq = fopen("registros.bin","rb+"); //rb+ pq ele vai ler e escrever por causa das alteracoes
 
     if (!arq) { //arquivo nao existe ou tem erro
-        printf("Tivemos um problema com o arquivo. Tente novamente. \n");
+        printf("Tivemos um problema com o arquivo. Tente novamente mais tarde. \n");
         return; //finaliza a funcao
     }
 
@@ -139,7 +139,7 @@ void AlterarRegistro(){
         scanf("%d", &r.Carboidrato);
 
         if (r.Tipo == DM1) {
-            // printf("Tipo de Diabetes: 1\n"); 
+            // printf("Tipo de Diabetes: 1\n");
 
             printf("Nova dose de insulina (unidades): ");
             scanf("%d", &r.Info.Insulina);
@@ -157,7 +157,7 @@ void AlterarRegistro(){
 
         fwrite(&r, sizeof(struct Registro), 1, arq);
 
-        printf("\n==================================\n");
+        printf("\n====================================\n");
         printf("Registro #%d alterado com sucesso!\n", r.ID);
         printf("====================================\n");
 
@@ -204,7 +204,7 @@ void RemoverRegistro(){
 
         remove("registros.bin");
         rename("temp.bin","registros.bin");
-        printf("\n==================================\n");
+        printf("\n====================================\n");
         printf("Registro #%d apagado com sucesso!\n", id_remover);
         printf("====================================\n");
     }
@@ -212,9 +212,9 @@ void RemoverRegistro(){
     if (encontrado == 0){
 
         remove("temp.bin");
-        printf("\n==================================\n");
+        printf("\n============================\n");
         printf("Registro #%d não encontrado\n", id_remover);
-        printf("====================================\n");
+        printf("============================\n");
 
     }
 }
@@ -225,16 +225,19 @@ void BuscarRegistro() {
     struct Registro r;
 
     int Opcao = 0;
-    while (Opcao != 1 && Opcao != 2) {
+    short int Valido3 = 0;
+    while (!Valido3){
         printf("Buscar por 1 - ID ou 2 - Tipo? ");
         scanf("%d", &Opcao);
+        if (Opcao == 1 || Opcao == 2){Valido3 = 1;}
+        if (Opcao != 1 && Opcao != 2){printf("Opcao invalida. Tente novamente.\n\n");}
     }
 
     if (Opcao == 1) {
         int EscolhaID = 1;
-        int Valido = 0;
+        short int Valido = 0;
         while (!Valido) {
-            printf("\nDigite um ID (-1 para voltar ao MENU): ");
+            printf("Digite um ID (-1 para voltar ao MENU): ");
             scanf("%d", &EscolhaID);
             if (EscolhaID == -1){break;} //caso não tenha registro pra buscar, digitar -1 volta para o menu
             fseek(arq, (EscolhaID - 1) * sizeof(struct Registro), SEEK_SET);
@@ -260,21 +263,29 @@ void BuscarRegistro() {
 
     else if (Opcao == 2) {
         int TipoSelecionado = 0;
-        while (TipoSelecionado != 1 && TipoSelecionado != 2) {
+        short int Valido2 = 0;
+        short int registros_encontrados = 0;
+        while(!Valido2){
             printf("Digite o tipo de diabetes para buscar (1 - DM1, 2 - DM2): ");
             scanf("%d", &TipoSelecionado);
+            if (TipoSelecionado != 1 && TipoSelecionado != 2){
+                printf("Opcao invalida. Tente novamente.\n\n");
+            }
+            if (TipoSelecionado == 1 || TipoSelecionado == 2){
+                Valido2 = 1;
+            }
         }
 
         if (TipoSelecionado == 1) {
             printf("\n=======================\n");
             printf("Registros do tipo DM1:\n");
             printf("=======================\n");
-        } else {
+        } else if (TipoSelecionado == 2){
             printf("\n=======================\n");
             printf("Registros do tipo DM2:\n");
             printf("=======================\n");
         }
-
+        
         while (fread(&r, sizeof(struct Registro), 1, arq) == 1) {
             if (r.Tipo == TipoSelecionado) {
                 printf("\nRegistro ID %d:\n", r.ID);
@@ -288,9 +299,15 @@ void BuscarRegistro() {
                     printf("Minutos de atividade aerobica: %d min\n", r.Info.AtividadeFisica.Aerobica);
                     printf("Minutos de atividade de resistencia: %d min\n", r.Info.AtividadeFisica.Resistencia);
                 }
+                registros_encontrados = 1;
             }
         }
+    if (registros_encontrados == 0){
+        printf("==================================\n");
+        printf("Nao foram encontrados registros\n");
+        printf("==================================\n");
     }
+}
     fclose(arq);
 }
 
