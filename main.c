@@ -83,7 +83,7 @@ void AlterarRegistro(){
     FILE *arq = fopen("registros.bin","rb+"); //rb+ pq ele vai ler e escrever por causa das alteracoes
 
     if (!arq) { //arquivo nao existe ou tem erro
-        printf("Tivemos um problema com o arquivo. Tente novamente mais tarde. \n");
+        printf("Tivemos um problema com o arquivo. Tente novamente. \n");
         return; //finaliza a funcao
     }
 
