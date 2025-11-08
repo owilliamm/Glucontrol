@@ -113,7 +113,7 @@ void AlterarRegistro(){
         printf("Carboidrato consumido: %d g\n", r.Carboidrato);
         printf("===============\n\n");
 
-        fseek(arq, -sizeof(struct Registro), SEEK_CUR);
+        fseek(arq, -(long)sizeof(struct Registro), SEEK_CUR);
 
         printf("----- ALTERACAO DOS DADOS -----\n");
         int DataHoraAlt[2][3] = {{0, 0, 0}, {0, 0}};
