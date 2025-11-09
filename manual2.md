@@ -20,7 +20,7 @@ O aplicativo se baseia na criação de registros através de um menu via termina
 
 Ao inicializar, é mostrado o seguinte menu: 
 
-![Menu de opções do programa](/imagens/menu.png "Menu em um terminal linux")
+![Menu de opções do programa](/imagens/menufinal.jpg "Menu em um terminal linux")
 
 É a partir dele que todas as funções do programa serão utilizadas, você deve digitar o número respectivo de cada uma para usá-la. Por exemplo: para `Adicionar registro` digite `1`.
 
@@ -96,6 +96,8 @@ Basta digitar o `ID` que deseja observar, caso não exista, a mensagem `ID invá
 2. Busca por tipo
 
 Assim que escolher este método, você deve, em seguida, decidir qual tipo de diabetes deseja verificar. Ao encontrar registros do tipo selecionado, o programa exibirá todas as respectivas informações presentes no arquivo. Se não houver dados a mostrar, a mensagem `Não foram encontrados registros` aparecerá.
+
+![Exemplo de busca por tipo](/imagens/Escolha4_tipo1.jpg "Exemplo de busca por tipo (1)")
 
 ![Exemplo de busca por tipo](/imagens/Escolha4_tipo2.png "Exemplo de busca por tipo (2)")
 
