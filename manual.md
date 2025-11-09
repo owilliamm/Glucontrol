@@ -22,7 +22,7 @@ Ao inicializar, é mostrado o seguinte menu:
 
 ![Menu de opções do programa](/imagens/menufinal.jpg "Menu em um terminal linux")
 
-É a partir dele que todas as funções do programa serão utilizadas, você deve digitar o número respectivo de cada uma para usá-la. Por exemplo: para `Adicionar registro` digite `1`.
+É a partir dele que todas as funções do programa serão utilizadas, você deve digitar o respectivo número de cada uma para usá-la. Por exemplo: para `Adicionar registro` digite `1`.
 
 > [!WARNING]
 > Caso seja inserido outro número diferente das opções disponíveis no menu, o programa indicará o erro e solicitará uma entrada novamente, porém, **digitar letras ou outros caracteres onde números são solicitados pode, em qualquer função, causar um comportamento inesperado como repetição infinitas de frases**. Nesse caso, reinicie o software para retornar à normalidade.
@@ -50,7 +50,7 @@ E caso seja do tipo 2, as perguntas são:
 
 ![Exemplo de criação de um registro tipo 2](/imagens/Escolha1_Registro2.png "Exemplo de criação de um registro de diabetes tipo 2")
 
-Em *Data e Hora*, sua resposta deve ser escrita no formato (DD/MM/YYYY HH:MM). Em outras perguntas, não digite outros valores que não sejam números inteiros, caso contrário será solicitado os dados novamente no formato correto.
+Em *Data e Hora*, sua resposta deve ser escrita no formato (DD/MM/YYYY HH:MM). Em outras perguntas, não digite outros valores que não sejam números inteiros, caso contrário, será solicitado os dados novamente no formato correto.
 
 Caso o registro seja adicionado com sucesso, aparecerá uma mensagem escrita `Registro #n criado com sucesso!`, sendo `n` o `ID` do registro, que funciona como identificador único para a utilização de outras funções (como alterar, remover ou buscar).
 
@@ -67,6 +67,8 @@ Nesta seção o usuário poderá realizar alterações dos registros feitos ante
 
 ![Exemplo de alterar registro](/imagens/Escolha2_ID.png "Exemplo de alteração do registro #1")
 
+![Exemplo de alterar registro não encontrado](/imagens/Escolha2_NA.jpg "Exemplo de não localizar registro para alterar")
+
 Caso haja sucesso, a mensagem `Registro #n alterado com sucesso!` será exibida.
 
 
@@ -80,7 +82,7 @@ Se por alguma hipótese o aplicativo não funcionar corretamente e criar um regi
 Para apagar o registro, o programa realiza os seguintes passos:
 
 1. Cria um arquivo temporário `temp.bin`.
-2. Copia para ele todas as informações do arquivo original **exceto a que será removida**
+2. Copia para ele todas as informações do arquivo original **exceto a que será removido**.
 3. Apaga o antigo registro e, por fim, renomeia o arquivo temporário para `registros.bin`, finalizando o processo.
 
 
@@ -120,7 +122,7 @@ Por fim, para encerrar o programa, digite `5` no menu inicial e a mensagem `Saiu
 **R:** Não, a função "Remover registro" é permanente.
 
 **P:** Eu posso buscar um registro pela data ou por outro valor?
-**R:** Não, somente é possível realizar a buscar pelo `ID` por tipo de diabetes.
+**R:** Não, somente é possível realizar a buscar pelo `ID` ou pelo tipo de diabetes.
 
 **P:** Se o arquivo `temp.bin` se manter na minha máquina, eu posso apagá-lo?
-**R:** Sim, o programa provavelmente cometeu um erro ao apagar um registro, porém certifique-se de que o Glucontrol esteja funcionando corretamente.
+**R:** Sim, o programa provavelmente cometeu um erro ao apagar um registro, porém certifique-se de que o Glucontrol esteja funcionando corretamente e faça um backup antes de tomar qualquer ação.
