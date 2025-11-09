@@ -4,7 +4,7 @@
 
 Bem-vindo ao manual de usuário do **Glucontrol**! Por favor, leia atentamente este documento antes de utilizar o software para entender seu funcionamento ideal.
 
-Este programa possui o intuito de auxiliar pessoas portadoras de diabates, tipo 1 ou tipo 2, no gerenciamento de informações importantes para o controle da doença. Sua função principal é o controle glicemico, apresentando um histórico essencial para que o usuário possa repensar seus hábitos e de facilitar uma consulta médica.
+Este programa possui o intuito de auxiliar pessoas portadoras de diabetes, tipo 1 ou tipo 2, no gerenciamento de informações importantes para o controle da doença. Sua função principal é o controle glicemico, apresentando um histórico essencial para que o usuário possa repensar seus hábitos e de facilitar uma consulta médica.
 
 
 ## Uso do programa
@@ -31,7 +31,7 @@ Ao inicializar, é mostrado o seguinte menu:
 ## Adicionar registro
 
 
-Este é o passo inicial para a utilização efetiva do programa. Ao escolher esta opção, você deve responder às perguntas com os dados que queira registrar. A primeira pergunta será o tipo de diabates, você deve digitar `1` ou `2`. Caso seja do tipo 1, as perguntas são:
+Este é o passo inicial para a utilização efetiva do programa. Ao escolher esta opção, você deve responder às perguntas com os dados que queira registrar. A primeira pergunta será o tipo de diabetes, você deve digitar `1` ou `2`. Caso seja do tipo 1, as perguntas são:
 
 -  Data e Hora
 -  Valor da glicose em mg/dL
@@ -52,7 +52,7 @@ E caso seja do tipo 2, as perguntas são:
 
 Em *Data e Hora*, sua resposta deve ser escrita no formato (DD/MM/YYYY HH:MM). Em outras perguntas, não digite outros valores que não sejam números inteiros, caso contrário será solicitado os dados novamente no formato correto.
 
-Caso o registro seja adicionado com sucesso, aparecerá uma mensagem escrita `Registro #n criado com sucesso!`, sendo `n` o `ID` do registro, que funciona como identificador para a utilização de outras funções e como armazenamento.
+Caso o registro seja adicionado com sucesso, aparecerá uma mensagem escrita `Registro #n criado com sucesso!`, sendo `n` o `ID` do registro, que funciona como identificador único para a utilização de outras funções (como alterar, remover ou buscar).
 
 Nesse momento, é criado um arquivo binário `registros.bin` — no mesmo local onde está localizado o programa — que salvará seus dados.
 
@@ -77,7 +77,11 @@ Se por alguma hipótese o aplicativo não funcionar corretamente e criar um regi
 
 ![Exemplo de apagar registro](/imagens/Escolha3.png "Exemplo de remoção do registro #2")
 
-Para apagar o registro, o programa cria um arquivo temporário `temp.bin`, copia nele todas as informações do arquivo original **exceto a que será removida**, apaga o antigo registro e transforma o temporário em original, renomeando-o para `registros.bin`.
+Para apagar o registro, o programa realiza os seguintes passos:
+
+1. Cria um arquivo temporário `temp.bin`.
+2. Copia para ele todas as informações do arquivo original **exceto a que será removida**
+3. Apaga o antigo registro e, por fim, renomeia o arquivo temporário para `registros.bin`, finalizando o processo.
 
 
 ## Buscar registro
@@ -112,3 +116,11 @@ Por fim, para encerrar o programa, digite `5` no menu inicial e a mensagem `Saiu
 
 ## Q&A
 
+**P:** É possível recuperar um registro apagado?
+**R:** Não, a função "Remover registro" é permanente.
+
+**P:** Eu posso buscar um registro pela data ou por outro valor?
+**R:** Não, somente é possível realizar a buscar pelo `ID` por tipo de diabetes.
+
+**P:** Se o arquivo `temp.bin` se manter na minha máquina, eu posso apagá-lo?
+**R:** Sim, o programa provavelmente cometeu um erro ao apagar um registro, porém certifique-se de que o Glucontrol esteja funcionando corretamente.
