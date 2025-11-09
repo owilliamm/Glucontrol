@@ -1,10 +1,14 @@
 # Manual de Usuário Glucontrol
 
-Bem-vindo ao manual de usuário do **Glucontrol**!. Por favor, leia atentamente este documento antes de utilizar o software para entender seu funcionamento ideal.
 
-Este programa possui o intuito de auxiliar pessoas portadoras de diabates, tipo 1 ou tipo 2, no gerenciamento de informações importantes para o controle da doença. Sua função principal é o controle glicemico, apresentando um histórico primordial para que o usuário possa repensar seus hábitos e de facilitar uma consulta médica.
+
+Bem-vindo ao manual de usuário do **Glucontrol**! Por favor, leia atentamente este documento antes de utilizar o software para entender seu funcionamento ideal.
+
+Este programa possui o intuito de auxiliar pessoas portadoras de diabates, tipo 1 ou tipo 2, no gerenciamento de informações importantes para o controle da doença. Sua função principal é o controle glicemico, apresentando um histórico essencial para que o usuário possa repensar seus hábitos e de facilitar uma consulta médica.
+
 
 ## Uso do programa
+
 
 O aplicativo se baseia na criação de registros através de um menu via terminal que armazena as seguintes informações:
 
@@ -21,9 +25,11 @@ Ao inicializar, é mostrado o seguinte menu:
 É a partir dele que todas as funções do programa serão utilizadas, você deve digitar o número respectivo de cada uma para usá-la. Por exemplo: para `Adicionar registro` digite `1`.
 
 > [!WARNING]
-> Neste caso, se for digitado outro número, o programa indicará o erro e solicitará novamente, porém, **digitar outros caracteres diferentes do solicitados pode, em qualquer momento, causar um mau funcionamento**. Nesses casos é recomendado o reinicio do software para retornar à normalidade.
+> Caso seja inserido outro número diferente das opções disponíveis no menu, o programa indicará o erro e solicitará uma entrada novamente, porém, **digitar letras ou outros caracteres onde números são solicitados pode, em qualquer função, causar um comportamento inesperado como repetição infinitas de frases**. Nesse caso, reinicie o software para retornar à normalidade.
+
 
 ## Adicionar registro
+
 
 Este é o passo inicial para a utilização efetiva do programa. Ao escolher esta opção, você deve responder às perguntas com os dados que queira registrar. A primeira pergunta será o tipo de diabates, você deve digitar `1` ou `2`. Caso seja do tipo 1, as perguntas são:
 
@@ -44,16 +50,63 @@ E caso seja do tipo 2, as perguntas são:
 
 ![Exemplo de criação de um registro tipo 2](/imagens/Escolha1_Registro2.png "Exemplo de criação de um registro de diabetes tipo 2")
 
-Em *Data e Hora*, sua resposta deve ser escrita no formato (DD/MM/YYYY HH:MM). Nas outras perguntas, não digite outros valores que não sejam números inteiros, caso contrário será solicitado os dados novamente no formato correto.
+Em *Data e Hora*, sua resposta deve ser escrita no formato (DD/MM/YYYY HH:MM). Em outras perguntas, não digite outros valores que não sejam números inteiros, caso contrário será solicitado os dados novamente no formato correto.
 
-Caso o registro seja adicionado com sucesso, aparecerá uma mensagem escrita `Registro #n criado com sucesso!`, sendo `n` o `ID` do registro, que funciona como identificador para a utilização de outras funções.
+Caso o registro seja adicionado com sucesso, aparecerá uma mensagem escrita `Registro #n criado com sucesso!`, sendo `n` o `ID` do registro, que funciona como identificador para a utilização de outras funções e como armazenamento.
 
-Nesse momento, é criado um arquivo binário `registros.bin` — no mesmo local onde está armazenado o programa — que armazena todos os registros criados. É recomendado que o usuário não apague este arquivo, pois todos os registros serão apagados permanentemente. Ela também usa uma função auxiliar que cria um ID para cada uso da função e mostrando-o.
+Nesse momento, é criado um arquivo binário `registros.bin` — no mesmo local onde está localizado o programa — que salvará seus dados.
 
-## Alterar Registro
+> [!CAUTION]
+> É recomendado que o usuário **não apague ou mova este arquivo**, pois todo seu histórico será apagado e/ou inutilizável. O `ID` que aparece na mensagem de sucesso é o número que você usará no futuro para alterar, remover ou buscar este registro.
 
-Nesta seção o usuário poderá realizar alterações dos registros feitos anteriormente. Primeiro deve-se identificar qual registro queira alterar através de seu ID dito no momento de sua criação, caso não seja encontrado, a mensagem `Registro #n não foi encontrado. Tente novamente mais tarde.` aparecerá, sendo `n` o `ID` digitado, retornando ao menu inicial. Entretanto, se ele for localizado, o programa exibirá seus dados e solicitará os novos para que seja feita a alteração.
+
+## Alterar registro
+
+
+Nesta seção o usuário poderá realizar alterações dos registros feitos anteriormente. Primeiro deve-se identificar qual registro queira alterar através de seu `ID` dito no momento de sua criação, caso não seja encontrado, a mensagem `Registro #n não foi encontrado. Tente novamente mais tarde.` aparecerá, sendo `n` o `ID` digitado, retornando ao menu inicial. Entretanto, se ele for localizado, o programa exibirá seus dados e solicitará os novos para que seja feita a alteração.
 
 ![Exemplo de alterar registro](/imagens/Escolha2_ID.png "Exemplo de alteração do registro #1")
 
 Caso haja sucesso, a mensagem `Registro #n alterado com sucesso!` será exibida.
+
+
+## Remover registro
+
+
+Se por alguma hipótese o aplicativo não funcionar corretamente e criar um registro defeituoso, ou por simples vontade do usuário, é possível apagar uma ocorrência no arquivo binário através desta função. Após digitar o número `3` no menu, digita-se qual o `ID` do registro que deverá ser apagado. Se ele existir, será exibido a mensagem `Registro #n apagado com sucesso!`, se não, `Registro #n não encontrado`.
+
+![Exemplo de apagar registro](/imagens/Escolha3.png "Exemplo de remoção do registro #2")
+
+Para apagar o registro, o programa cria um arquivo temporário `temp.bin`, copia nele todas as informações do arquivo original **exceto a que será removida**, apaga o antigo registro e transforma o temporário em original, renomeando-o para `registros.bin`.
+
+
+## Buscar registro
+
+
+É primordial a ação de visualizar o que foi anteriormente armazenado no arquivo binário — já que não é possível interagir com ele fora do programa — e com isso tomar melhores decisões para o controle da doença. Esta função permite a plena visualização de todos os registros desejados através de uma busca por dois métodos:
+
+1. Busca por ID
+
+Basta digitar o `ID` que deseja observar, caso não exista, a mensagem `ID inválido. Tente novamente.` será exibida e você deve colocar novamente o `ID` desejado. Para retornar ao menu, digite `-1`.
+
+![Exemplo de busca por ID](/imagens/Escolha4.png "Exemplo de busca por ID (1)")
+
+![Exemplo de busca por ID](/imagens/Escolha4_ID2.png "Exemplo de busca por ID (2)")
+
+2. Busca por tipo
+
+Assim que escolher este método, você deve, em seguida, decidir qual tipo de diabetes deseja verificar. Ao encontrar registros do tipo selecionado, o programa exibirá todas as respectivas informações presentes no arquivo. Se não houver dados a mostrar, a mensagem `Não foram encontrados registros` aparecerá.
+
+![Exemplo de busca por tipo](/imagens/Escolha4_tipo2.png "Exemplo de busca por tipo (2)")
+
+![Exemplo de busca por tipo sem registro](/imagens/Escolha4_sem_registro.png "Exemplo de busca por tipo (Nenhum registro deste tipo encontrado)")
+
+
+## Sair
+
+
+Por fim, para encerrar o programa, digite `5` no menu inicial e a mensagem `Saiu com sucesso` será exibida e o terminal poderá ser usado normalmente.
+
+
+## Q&A
+
