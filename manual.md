@@ -75,7 +75,7 @@ Caso haja sucesso, a mensagem `Registro #n alterado com sucesso!` será exibida.
 ## Remover registro
 
 
-Se por alguma hipótese o aplicativo não funcionar corretamente e criar um registro defeituoso, ou por simples vontade do usuário, é possível apagar uma ocorrência no arquivo binário através desta função. Após digitar o número `3` no menu, digita-se qual o `ID` do registro que deverá ser apagado. Se ele existir, será exibido a mensagem `Registro #n apagado com sucesso!`, se não, `Registro #n não encontrado`.
+Se por alguma hipótese o aplicativo não funcionar corretamente e criar um registro defeituoso, ou por simples vontade do usuário, é possível apagar uma ocorrência no arquivo binário através desta função. Após digitar o número `3` no menu, insira qual o `ID` do registro que deverá ser apagado. Se ele existir, será exibido a mensagem `Registro #n apagado com sucesso!`, se não, `Registro #n não encontrado`.
 
 ![Exemplo de apagar registro](/imagens/Escolha3.png "Exemplo de remoção do registro #2")
 
