@@ -18,5 +18,6 @@ O programa permite criar, editar, buscar e remover registros com facilidade, via
  ‧ Minutos de prática aeróbica e de resistência
 </pre>
 
-<h2>Guia do Usuário</h2> 
-Nosso guia já está disponível!
+<h2>Guia do Usuário</h2>
+
+[Nosso guia já está disponível!](/manual.md/)
