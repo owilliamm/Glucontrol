@@ -126,4 +126,6 @@ Por fim, para encerrar o programa, digite `5` no menu inicial e a mensagem `Saiu
 **P:** Se o arquivo `temp.bin` se manter na minha máquina, eu posso apagá-lo?
 **R:** Sim, o programa provavelmente cometeu um erro ao apagar um registro, porém certifique-se de que o Glucontrol esteja funcionando corretamente e faça um backup antes de tomar qualquer ação.
 
+## Fim
+
 Obrigado por ler! Esperamos que você faça bom proveito do nosso sistema.
