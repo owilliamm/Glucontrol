@@ -1,10 +1,9 @@
 # Manual de Usuário Glucontrol
 
 
-
 Bem-vindo ao manual de usuário do **Glucontrol**! Por favor, leia atentamente este documento antes de utilizar o software para entender seu funcionamento ideal.
 
-Este programa possui o intuito de auxiliar pessoas portadoras de diabetes, tipo 1 ou tipo 2, no gerenciamento de informações importantes para o controle da doença. Sua função principal é o controle glicemico, apresentando um histórico essencial para que o usuário possa repensar seus hábitos e de facilitar uma consulta médica.
+Este programa possui o intuito de auxiliar pessoas portadoras de diabetes, tipo 1 ou tipo 2, no gerenciamento de informações importantes para o controle da doença. Sua função principal é o controle glicêmico, apresentando um histórico essencial para que o usuário possa repensar seus hábitos e para facilitar uma consulta médica.
 
 
 ## Uso do programa
@@ -30,7 +29,6 @@ Ao inicializar, é mostrado o seguinte menu:
 
 ## Adicionar registro
 
-
 Este é o passo inicial para a utilização efetiva do programa. Ao escolher esta opção, você deve responder às perguntas com os dados que queira registrar. A primeira pergunta será o tipo de diabetes, você deve digitar `1` ou `2`. Caso seja do tipo 1, as perguntas são:
 
 -  Data e Hora
@@ -38,7 +36,8 @@ Este é o passo inicial para a utilização efetiva do programa. Ao escolher est
 -  Carboidrato consumido em gramas
 -  Unidades de dose de insulina tomadas
 
-![Exemplo de criação de um registro tipo 1](/imagens/Escolha1.png "Exemplo de criação de um registro de diabetes tipo 1")
+<img src="/imagens/Escolha1.png" alt="Exemplo de criação de um registro de diabetes tipo 1" width="75%" height="75%">
+
 
 E caso seja do tipo 2, as perguntas são:
 
@@ -48,7 +47,7 @@ E caso seja do tipo 2, as perguntas são:
 -  Minutos de atividade aeróbica
 -  Minutos de atividade de resistência
 
-![Exemplo de criação de um registro tipo 2](/imagens/Escolha1_Registro2.png "Exemplo de criação de um registro de diabetes tipo 2")
+<img src="/imagens/Escolha1_Registro2.png" alt="Exemplo de criação de um registro de diabetes tipo 2" width="75%" height="75%">
 
 Em *Data e Hora*, sua resposta deve ser escrita no formato (DD/MM/YYYY HH:MM). Em outras perguntas, não digite outros valores que não sejam números inteiros, caso contrário, será solicitado os dados novamente no formato correto.
 
@@ -62,10 +61,9 @@ Nesse momento, é criado um arquivo binário `registros.bin` — no mesmo local 
 
 ## Alterar registro
 
-
 Nesta seção o usuário poderá realizar alterações dos registros feitos anteriormente. Primeiro deve-se identificar qual registro queira alterar através de seu `ID` dito no momento de sua criação, caso não seja encontrado, a mensagem `Registro #n não foi encontrado. Tente novamente mais tarde.` aparecerá, sendo `n` o `ID` digitado, retornando ao menu inicial. Entretanto, se ele for localizado, o programa exibirá seus dados e solicitará os novos para que seja feita a alteração.
 
-![Exemplo de alterar registro](/imagens/Escolha2_ID.png "Exemplo de alteração do registro #1")
+<img src="/imagens/Escolha2_ID.png" alt="Exemplo de alteração do registro #1" width="75%" height="75%">
 
 ![Exemplo de alterar registro não encontrado](/imagens/Escolha2_NA.jpg "Exemplo de não localizar registro para alterar")
 
@@ -103,11 +101,11 @@ Basta digitar o `ID` que deseja observar, caso não exista, a mensagem `ID invá
 
 Assim que escolher este método, você deve, em seguida, decidir qual tipo de diabetes deseja verificar. Ao encontrar registros do tipo selecionado, o programa exibirá todas as respectivas informações presentes no arquivo. Se não houver dados a mostrar, a mensagem `Não foram encontrados registros` aparecerá.
 
-![Exemplo de busca por tipo](/imagens/Escolha4_tipo1.jpg "Exemplo de busca por tipo (1)")
+<img src="/imagens/Escolha4_tipo1.jpg" alt="Exemplo de busca por tipo (1)" width="75%" height="75%">
 
-![Exemplo de busca por tipo](/imagens/Escolha4_tipo2.png "Exemplo de busca por tipo (2)")
+<img src="/imagens/Escolha4_tipo2.png" alt="Exemplo de busca por tipo (2)" width="75%" height="75%">
 
-![Exemplo de busca por tipo sem registro](/imagens/Escolha4_sem_registro.png "Exemplo de busca por tipo (Nenhum registro deste tipo encontrado)")
+<img src="/imagens/Escolha4_sem_registro.png" alt="Exemplo de busca por tipo (Nenhum registro deste tipo encontrado)" width="75%" height="75%">
 
 
 ## Sair
@@ -119,10 +117,12 @@ Por fim, para encerrar o programa, digite `5` no menu inicial e a mensagem `Saiu
 ## Q&A
 
 **P:** É possível recuperar um registro apagado?
-**R:** Não, a função "Remover registro" é permanente.
+**R:** Não, a função `Remover registro` é permanente.
 
 **P:** Eu posso buscar um registro pela data ou por outro valor?
 **R:** Não, somente é possível realizar a buscar pelo `ID` ou pelo tipo de diabetes.
 
 **P:** Se o arquivo `temp.bin` se manter na minha máquina, eu posso apagá-lo?
 **R:** Sim, o programa provavelmente cometeu um erro ao apagar um registro, porém certifique-se de que o Glucontrol esteja funcionando corretamente e faça um backup antes de tomar qualquer ação.
+
+Obrigado por ler! Esperamos que você faça bom proveito do nosso sistema.
