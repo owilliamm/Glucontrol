@@ -19,4 +19,4 @@ O programa permite criar, editar, buscar e remover registros com facilidade, via
 </pre>
 
 <h2>Guia do Usuário</h2> 
-Nosso guia já está disponível! Acesse [aqui](https://github.com/owilliamm/Glucontrol/blob/main/manual.md)
+Nosso guia já está disponível!
