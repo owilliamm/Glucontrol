@@ -1,5 +1,7 @@
 <h2>Glucontrol</h2> 
 
+<img src="/imagens/logoglucontrol.jpeg" alt="Logo Glucontrol" width="30%" height="30%">
+
 [Download](https://github.com/owilliamm/Glucontrol/releases/tag/Main)
 
 <h2>Introdução</h2>
@@ -15,3 +17,6 @@ O programa permite criar, editar, buscar e remover registros com facilidade, via
  ‧ Data e horário
  ‧ Minutos de prática aeróbica e de resistência
 </pre>
+
+<h2>Guia do Usuário</h2> 
+Nosso guia já está disponível! Acesse [aqui](https://github.com/owilliamm/Glucontrol/blob/main/manual.md)
