@@ -1,6 +1,6 @@
 <h2>Glucontrol</h2> 
 
-<img src="/imagens/logoglucontrol.jpeg" alt="Logo Glucontrol" width="30%" height="30%">
+<img src="/imagens/Glucontrol_sem_fundo.png" alt="Logo Glucontrol" width="30%" height="30%">
 
 [Download](https://github.com/owilliamm/Glucontrol/releases/tag/Main)
 
