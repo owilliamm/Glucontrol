@@ -50,7 +50,7 @@ E caso seja do tipo 2, as perguntas são:
 
 <img src="/imagens/Escolha1_Registro2.png" alt="Exemplo de criação de um registro de diabetes tipo 2" width="75%" height="75%">
 
-Em *Data e Hora*, sua resposta deve ser escrita no formato (DD/MM/YYYY HH:MM), *incluindo as barras (/) e dois pontos (:)*. Se sua entrada não for neste formato, o programa indica o erro e solicita os dados novamente.
+Em *Data e Hora*, sua resposta deve ser escrita no formato (DD/MM/YYYY HH:MM), **incluindo as barras (/) e dois pontos (:).** Se sua entrada não for neste formato, o programa indica o erro e solicita os dados novamente.
 
 Caso o registro seja adicionado com sucesso, aparecerá uma mensagem escrita `Registro #n criado com sucesso!`, sendo `n` o `ID` do registro, que funciona como identificador único para a utilização de outras funções (como alterar, remover ou buscar).
 
