@@ -1,6 +1,6 @@
 # Manual de Usuário Glucontrol
 
-<img src="/imagens/logoglucontrol.jpeg" alt="Logo Glucontrol" width="30%" height="30%">
+<img src="/imagens/Glucontrol_sem_fundo_txt_branco.png" alt="Logo Glucontrol" width="30%" height="30%">
 
 Bem-vindo ao manual de usuário do **Glucontrol**! Por favor, leia atentamente este documento antes de utilizar o software para entender seu funcionamento ideal.
 
