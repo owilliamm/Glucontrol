@@ -22,7 +22,7 @@ Ao inicializar, é mostrado o seguinte menu:
 
 ![Menu de opções do programa](/imagens/menufinal.jpg "Menu em um terminal linux")
 
-É a partir dele que todas as funções do programa serão utilizadas, você deve digitar o respectivo número de cada uma para usá-la. Por exemplo: para `Adicionar registro` digite `1`.
+É a partir dele que todas as funções do programa serão utilizadas, você deve digitar o respectivo número de cada uma para usá-la. Por exemplo: para [`Adicionar registro`](#adicionar-registro) digite `1`.
 
 > [!WARNING]
 > Caso seja inserido outro número diferente das opções disponíveis no menu, o programa indicará o erro e solicitará uma entrada novamente, porém, **digitar letras ou outros caracteres onde números são solicitados pode, em qualquer função, causar um comportamento inesperado como repetição infinitas de frases**. Nesse caso, reinicie o software para retornar à normalidade.
@@ -54,10 +54,12 @@ Em *Data e Hora*, sua resposta deve ser escrita no formato (DD/MM/YYYY HH:MM). E
 
 Caso o registro seja adicionado com sucesso, aparecerá uma mensagem escrita `Registro #n criado com sucesso!`, sendo `n` o `ID` do registro, que funciona como identificador único para a utilização de outras funções (como alterar, remover ou buscar).
 
+### Novo arquivo
+
 Nesse momento, é criado um arquivo binário `registros.bin` — no mesmo local onde está localizado o programa — que salvará seus dados.
 
 > [!CAUTION]
-> É recomendado que o usuário **não apague ou mova este arquivo**, pois todo seu histórico será apagado e/ou inutilizável. O `ID` que aparece na mensagem de sucesso é o número que você usará no futuro para alterar, remover ou buscar este registro.
+> É recomendado que o usuário **não apague ou mova este arquivo**, pois todo seu histórico será apagado e/ou inutilizável. O `ID` que aparece na mensagem de sucesso é o número que você usará no futuro para alterar, remover ou buscar este registro. Não é preciso decorar este `ID`, você poderá buscar esse cadastro usando a função [`Buscar registro`](#buscar-registro).
 
 
 ## Alterar registro
@@ -118,7 +120,7 @@ Por fim, para encerrar o programa, digite `5` no menu inicial e a mensagem `Saiu
 ## Q&A
 
 **P:** É possível recuperar um registro apagado?
-**R:** Não, a função `Remover registro` é permanente.
+**R:** Não, a função [`Remover registro`](#remover-registro) é permanente.
 
 **P:** Eu posso buscar um registro pela data ou por outro valor?
 **R:** Não, somente é possível realizar a buscar pelo `ID` ou pelo tipo de diabetes.
