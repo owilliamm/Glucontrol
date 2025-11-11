@@ -59,7 +59,7 @@ Caso o registro seja adicionado com sucesso, aparecerá uma mensagem escrita `Re
 Nesse momento, é criado um arquivo binário `registros.bin` — no mesmo local onde está localizado o programa — que salvará seus dados.
 
 > [!CAUTION]
-> É recomendado que o usuário **não apague ou mova este arquivo**, pois todo seu histórico será apagado e/ou inutilizável. O `ID` que aparece na mensagem de sucesso é o número que você usará no futuro para alterar, remover ou buscar este registro. Não é preciso decorar este `ID`, você poderá buscar esse cadastro usando a função [`Buscar registro`](#buscar-registro).
+> É recomendado que o usuário **não apague ou mova este arquivo**, pois todo seu histórico será apagado e/ou inutilizável. O `ID` que aparece na mensagem de sucesso é o número que você usará no futuro para alterar, remover ou buscar este registro. Não é preciso decorar este `ID`, você pode buscar esse cadastro usando a função [`Buscar registro`](#buscar-registro).
 
 
 ## Alterar registro
