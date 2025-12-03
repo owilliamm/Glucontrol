@@ -302,12 +302,14 @@ void BuscarRegistro() {
                 registros_encontrados = 1;
             }
         }
-    if (registros_encontrados == 0){
-        printf("==================================\n");
-        printf("Nao foram encontrados registros\n");
-        printf("==================================\n");
+        
+        if (registros_encontrados == 0){
+            printf("==================================\n");
+            printf("Nao foram encontrados registros\n");
+            printf("==================================\n");
+        }
     }
-}
+    
     fclose(arq);
 }
 
